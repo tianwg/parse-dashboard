@@ -22,7 +22,7 @@ for (var i = 0; i < loaders.length; i++) {
     if (!loaders[i].query.plugins) {
       loaders[i].query.plugins = [];
     }
-    loaders[i].query.plugins.push('babel-plugin-remove-proptypes');
+    loaders[i].query.plugins.push('transform-react-remove-prop-types');
     break;
   }
 }
@@ -39,7 +39,7 @@ configuration.plugins.push(
       warnings: false
     }
   }),
-  new webpack.optimize.OccurenceOrderPlugin(),
+  new webpack.optimize.OccurrenceOrderPlugin(),
   function() {
     this.plugin('done', function(stats) {
       if (stats.compilation.errors && stats.compilation.errors.length) {

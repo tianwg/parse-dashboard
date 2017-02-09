@@ -23,10 +23,10 @@ module.exports = {
     publicPath: 'bundles/'
   },
   resolve: {
-    root: [__dirname,path.join(__dirname, '../src'), path.join(__dirname, 'node_modules')]
+    modules: [__dirname,path.resolve(__dirname, '../src'), path.resolve(__dirname, 'node_modules'), 'node_modules']
   },
   resolveLoader: {
-    root: path.join(__dirname, '../node_modules')
+    modules: [path.join(__dirname, '../node_modules')]
   },
   module: {
     loaders: [
@@ -35,7 +35,17 @@ module.exports = {
         exclude: /node_modules/,
         loader: 'babel-loader',
         query: {
-          optional: ['runtime', 'es7.decorators']
+          "presets": [
+            "react",
+            "es2015",
+            "stage-1"
+          ],
+          "plugins": [
+            "transform-runtime",
+            "add-module-exports",
+            "transform-decorators-legacy",
+            "transform-react-display-name"
+          ]
         }
       }, {
         test: /\.scss$/,

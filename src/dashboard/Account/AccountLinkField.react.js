@@ -39,7 +39,7 @@ export default class AccountLinkField extends React.Component {
   }
 };
 
-export default AccountLinkField;
+//export default AccountLinkField;
 
 AccountLinkField.PropTypes = {
   serviceName: PropTypes.string.isRequired.describe(
